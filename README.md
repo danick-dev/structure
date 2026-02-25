@@ -2,7 +2,7 @@
 Structure is a library for Dragonfly implementing support for reading and writing Minecraft Bedrock Edition structures.
 
 ## Installation
-Structure requires at least Go 1.18. The library may be installed using:
+Structure requires at least Go 1.25. The library may be installed using:
 ```shell
 go get github.com/df-mc/structure
 ```
