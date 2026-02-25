@@ -3,17 +3,18 @@ package structure
 import (
 	"bufio"
 	"fmt"
-	"github.com/df-mc/dragonfly/server/world"
-	"github.com/df-mc/dragonfly/server/world/chunk"
-	"github.com/sandertv/gophertunnel/minecraft/nbt"
 	"go/ast"
 	"io"
 	"os"
 	"reflect"
+
+	"github.com/df-mc/dragonfly/server/world"
+	"github.com/df-mc/dragonfly/server/world/chunk"
+	"github.com/sandertv/gophertunnel/minecraft/nbt"
 )
 
 // Structure holds the data of an .mcstructure file. Structure implements the world.Structure interface. It
-// may be built in a Dragonfly world by using (world.World).BuildStructure.
+// may be built in a Dragonfly world by using (world.Tx).BuildStructure within a world transaction.
 // Users must ensure Structure is only accessed from one goroutine at a time.
 type Structure struct {
 	*structure

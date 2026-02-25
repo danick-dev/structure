@@ -17,6 +17,7 @@ An example of reading and building a structure in a world:
 package main
 
 import (
+	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/df-mc/structure"
 )
@@ -25,10 +26,13 @@ func main() {
 	s, err := structure.ReadFile("example.mcstructure")
 	if err != nil {
 		panic(err)
-    }
-	
-	var w *world.World
-	w.BuildStructure(world.BlockPos{}, s)
+	}
+
+	w := world.New()
+	done := w.Exec(func(tx *world.Tx) {
+		tx.BuildStructure(cube.Pos{}, s)
+	})
+	<-done
 }
 ```
 
